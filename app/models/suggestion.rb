@@ -4,9 +4,9 @@ belongs_to :project
 belongs_to :member
 
 
-def take_suggestion
-  INSERT INTO suggestions(suggestion) VALUES (new_cli.get_suggestion_from_user)
-end
+# def take_suggestion
+#   INSERT INTO suggestions(suggestion) VALUES (new_cli.get_suggestion_from_user)
+# end
 
 end
 

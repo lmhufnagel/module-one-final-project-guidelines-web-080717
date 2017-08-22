@@ -9,6 +9,6 @@ ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'db/develo
 
 
 # require_all 'models'
-require_relative '../app/models/member.rb'
+require_relative '../app/models/member'
 require_relative '../app/models/project'
 require_relative '../app/models/suggestion'
