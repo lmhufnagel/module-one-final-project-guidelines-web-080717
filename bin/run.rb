@@ -1,25 +1,17 @@
 require_relative 'config/environment'
+require_relative 'models/member'
+require_relative 'models/project'
+require_relative 'models/suggestion'
+require_relative 'models/cliinterface'
 
-def valid_account (username)
-  "Please enter your username"
-  a=gets.chomp
-  if member.username.include?(a)
-    puts welcome
-  else
-    puts "Youre not yet a member! Lets change that! Please return to the homepage and create an account"
-  end
+new_cli = CommandLineInterface.new
+#new_cli.run
+new_cli.valid_account
 
-def welcome
-  puts "Hey there! #{username}! We want to hear what you have to say!"
-end
+new_cli.welcome
 
-def get_character_from_user
-  puts "What do you think will make our project better? Please drop a note in our suggestion box!"
-  gets.chomp
-end
+new_cli.which_project
 
-def add_date_time
-  change_table 'MYTABLE' do |table|
-    add_column(:mytable, :my_field_name, :integer)
-  end
-end
+new_cli.get_suggestion_from_user
+
+new_cli.add_date_time
