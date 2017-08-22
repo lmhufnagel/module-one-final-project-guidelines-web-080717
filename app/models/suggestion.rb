@@ -2,10 +2,11 @@ class Suggestion < ActiveRecord::Base
 belongs_to :project
 belongs_to :member
 
+#suggestion.create(username_id: , project_id:, suggestion: )
+# def initializ()
 
-def take_suggestion
-  INSERT INTO suggestions(suggestion) VALUES (new_cli.get_suggestion_from_user)
-end
+  #INSERT INTO suggestions(suggestion) VALUES (new_cli.get_suggestion_from_user)
+# end
 
 end
 
