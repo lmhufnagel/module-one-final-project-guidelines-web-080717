@@ -1,6 +1,6 @@
-class CreateSuggestionBox < ActiveRecord::Migration
+class CreateSuggestion < ActiveRecord::Migration
         def change
-    create_table :suggestion_boxes do |t|
+    create_table :suggestions do |t|
         t.text :suggestion
       t.text :project_id
       t.integer :memeber_id
