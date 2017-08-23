@@ -13,9 +13,9 @@
 ActiveRecord::Schema.define(version: 3) do
 
   create_table "members", force: :cascade do |t|
-    t.string  "username"
-    t.text    "aaa"
-    t.integer "costume_inventory"
+    t.string "username"
+    t.text   "first_name"
+    t.text   "last_name"
   end
 
   create_table "projects", force: :cascade do |t|

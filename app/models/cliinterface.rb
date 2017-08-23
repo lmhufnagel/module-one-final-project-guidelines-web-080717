@@ -1,4 +1,4 @@
-
+require 'pry'
 class CommandLineInterface
 
 
@@ -23,11 +23,24 @@ class CommandLineInterface
   def which_category
     puts "Select the number of the category that interests you."
     list_categories
-    category = gets.chomp
+    input = gets.chomp.to_i
     # then based on input, outputs list of possible projects in that category
+    category=@@categories[input]
   end
 
 
+  def find_category_from_list
+    c = which_category
+
+    a = Project.where(category: c)
+
+   a.each do |project|
+      puts "#{project.id}: #{project.title}"
+
+    end
+  end
+
+# cli.which_category
   # category = gets.chomp
 
   @@categories = {1 => "Local Businesses", 2 => "Community Projects", 3 => "Culture", 4 => "Health & Fitness", 5 => "Tech & Innovation", 6 => "Home"}
@@ -36,6 +49,7 @@ class CommandLineInterface
      @@categories.each_with_index do |(key, value), index|
     puts "#{index+1}: #{value}"
    end
+
  end
 
 
@@ -56,7 +70,6 @@ class CommandLineInterface
     sugg = gets.chomp
 
     Suggestion.find_or_create_by(suggestion: sugg, memeber_id: name.id, project_id: project.id)
-
 
   end
 end

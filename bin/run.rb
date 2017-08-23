@@ -5,12 +5,16 @@ require_relative '../app/models/suggestion'
 require_relative '../app/models/cliinterface'
 require_relative '../app/models/dataimporter'
 
-DataImporter.import_csv
+# DataImporter.import_csv
 
 new_cli = CommandLineInterface.new
 #new_cli.run
 
 name = new_cli.valid_account
+
+a = new_cli.find_category_from_list
+
+#category = new_cli.which_category
 
 project = new_cli.which_project
 
