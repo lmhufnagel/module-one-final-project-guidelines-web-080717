@@ -37,6 +37,7 @@ class CommandLineInterface
    a.each do |project|
       puts "#{project.id}: #{project.title}"
 
+
     end
   end
 
@@ -53,7 +54,6 @@ class CommandLineInterface
  end
 
 
-  #  def list_projects
 
 
   def which_project
@@ -65,11 +65,32 @@ class CommandLineInterface
     # else
   end
 
+
+
+  def which_project
+    puts "Which project are you interested in?"
+    project = gets.chomp
+    # if Project.find_by(title: project)
+    #   get_suggestion_from_user
+    # else
+  end
+
+  def list_project
+    project = which_project
+    Project.find_by(title: project)
+  end
+
+  def project_name
+
+  end
+
+
+
+
   def get_suggestion_from_user(name, project)
     puts "What do you think will make our project better? Please drop a note in our suggestion box!"
     sugg = gets.chomp
-
-    Suggestion.find_or_create_by(suggestion: sugg, memeber_id: name.id, project_id: project.id)
+    Suggestion.find_or_create_by(suggestion: sugg, memeber_id: name.id, project_id: project)
 
   end
 end
