@@ -5,7 +5,7 @@ require_relative '../app/models/suggestion'
 require_relative '../app/models/cliinterface'
 require_relative '../app/models/dataimporter'
 
-#DataImporter.import_csv
+DataImporter.import_csv
 
 new_cli = CommandLineInterface.new
 #new_cli.run
