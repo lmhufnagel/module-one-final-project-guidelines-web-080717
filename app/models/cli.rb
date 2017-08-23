@@ -54,7 +54,7 @@ class Cli
 
 
   def which_project
-    puts "Which project are you interested in?"
+    puts "Which project number are you interested in?"
     project = gets.chomp.to_i
     # Project.find_by(title: project)
     # if Project.find_by(title: project)
