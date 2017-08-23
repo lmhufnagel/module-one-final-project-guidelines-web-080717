@@ -1,5 +1,5 @@
 require 'pry'
-class CommandLineInterface
+class Cli
 
 
   def valid_account
@@ -36,8 +36,6 @@ class CommandLineInterface
 
    a.each do |project|
       puts "#{project.id}: #{project.title}"
-
-
     end
   end
 
@@ -49,48 +47,33 @@ class CommandLineInterface
    def list_categories
      @@categories.each_with_index do |(key, value), index|
     puts "#{index+1}: #{value}"
-   end
-
- end
+    end
+  end
 
 
 
 
   def which_project
-    puts "Which project are you interested in?"
-    project = gets.chomp
-    Project.find_by(title: project)
+    puts "Which project number are you interested in?"
+    project = gets.chomp.to_i
+    # Project.find_by(title: project)
     # if Project.find_by(title: project)
     #   get_suggestion_from_user
     # else
-  end
-
-
-
-  def which_project
-    puts "Which project are you interested in?"
-    project = gets.chomp
-    # if Project.find_by(title: project)
-    #   get_suggestion_from_user
-    # else
-  end
-
-  def list_project
-    project = which_project
-    Project.find_by(title: project)
-  end
-
-  def project_name
-
   end
 
 
 
 
   def get_suggestion_from_user(name, project)
-    puts "What do you think will make our project better? Please drop a note in our suggestion box!"
+    project_name=Project.find_by(id: project).title
+    puts "What do you think will make #{project_name} better? Please drop a note in our suggestion box!"
     sugg = gets.chomp
     Suggestion.find_or_create_by(suggestion: sugg, memeber_id: name.id, project_id: project)
-
+    puts "Thank you for your input.  Your suggestion has been sent to #{project_name}."
   end
+
+
+
+
 end

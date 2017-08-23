@@ -25,10 +25,9 @@ ActiveRecord::Schema.define(version: 3) do
   end
 
   create_table "suggestions", force: :cascade do |t|
-    t.text     "suggestion"
-    t.text     "project_id"
-    t.integer  "memeber_id"
-    t.datetime "left_review"
+    t.text    "suggestion"
+    t.text    "project_id"
+    t.integer "memeber_id"
   end
 
 end
