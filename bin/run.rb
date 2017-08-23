@@ -12,6 +12,8 @@ new_cli = CommandLineInterface.new
 
 name = new_cli.valid_account
 
+category = new_cli.which_category
+
 project = new_cli.which_project
 
 sugg = new_cli.get_suggestion_from_user(name, project)
